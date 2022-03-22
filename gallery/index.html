@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
- <style>
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  }
-</style
+    <html>
+      <head>
+        <script src='https://8x8.vc/external_api.js' async></script>
+        <style>html, body, #jaas-container { height: 100%; }</style>
+        <script type="text/javascript">
+          window.onload = () => {
+            const api = new JitsiMeetExternalAPI("8x8.vc", {
+              roomName: "vpaas-magic-cookie-3616fdb005bc48218a89560f2e7cdd1a/SampleAppStrategicFeesInformReportedly",
+              parentNode: document.querySelector('#jaas-container')
+            });
+          }
+        </script>
+      </head>
+      <body><div id="jaas-container" /></body>
+    </html>
+  
 
-</head>
-<body>
-
-  <iframe src="https://meet.jit.si/blueworldtest" width="500" height="500" style="border:none;">
-</iframe>
-
-</body>
-</html>
