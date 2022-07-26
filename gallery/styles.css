@@ -22,10 +22,10 @@ main {
     border: 15px solid #fff;
 }
 
-#gallery, #archive {
+#gallery, #voice {
 	display: block;
 }
 
 #gallery {
-	margin-right: 20px;
+	margin-below: 20px;
 }
