@@ -19,7 +19,7 @@ main {
     align-items: center; 
     justify-content: center; 
     height: 100vh;
-    border: 15px solid #fff;
+    border: 10px solid #fff;
 }
 
 #gallery, #voice {
