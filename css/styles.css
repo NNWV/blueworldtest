@@ -13,6 +13,10 @@ a {
     color: #6699cc;
 }
 
+img {
+  border: 10px solid #F0F0F0;
+}
+
 main {
     display: flex;
     flex-flow: row wrap;
