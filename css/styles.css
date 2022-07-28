@@ -4,7 +4,7 @@ body {
     padding: 0px;
     margin: 0;
     color: #fff;
-    background-color: #000;
+    background-color: #181818;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
     -webkit-text-size-adjust: none;
@@ -19,7 +19,7 @@ main {
     align-items: center; 
     justify-content: center; 
     height: 100vh;
-    border: 15px solid #fff;
+    border: 15px solid #000;
 }
 
 #gallery, #archive {
