@@ -9,6 +9,12 @@ body {
     -moz-osx-font-smoothing: grayscale; 
     -webkit-text-size-adjust: none;
 }
+
+div {
+    cursor:https://nnwv.github.io/blueworldtest/images/blue-cursor.cur(blue-cursur.cur),auto;
+}
+
+
 a {
     color: #6699cc;
 }
