@@ -30,7 +30,8 @@ main {
     align-items: center; 
     justify-content: center; 
     height: 100vh;
-    border: 15px solid #000;
+    border: 15px solid #000;	
+    gap: 10px;
     cursor: ../images/blue-cursor.cur(blue-cursur.cur),auto;
 }
 
