@@ -31,7 +31,7 @@ main {
     justify-content: center; 
     height: 100vh;
     border: 15px solid #000;	
-    gap: 10px;
+    gap: 20px;
     cursor: ../images/blue-cursor.cur(blue-cursur.cur),auto;
 }
 
