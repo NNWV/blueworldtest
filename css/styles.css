@@ -31,7 +31,7 @@ main {
     justify-content: center; 
     height: 100vh;
     border: 15px solid #000;
-    cursor: https://nnwv.github.io/blueworldtest/images/blue-cursor.cur(blue-cursur.cur),auto;
+    cursor: ../images/blue-cursor.cur(blue-cursur.cur),auto;
 }
 
 #gallery, #archive {
