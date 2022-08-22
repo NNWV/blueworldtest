@@ -37,7 +37,7 @@ main {
 
 figure {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     align-items: center; 
     justify-content: center; 
     gap: 10px;
