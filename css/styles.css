@@ -35,6 +35,22 @@ main {
     cursor: ../images/blue-cursor.cur(blue-cursur.cur),auto;
 }
 
+figure {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px;
+}
+
+figcaption {
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
 #gallery, #archive {
 	display: block;
 }
