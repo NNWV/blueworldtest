@@ -1,38 +1,108 @@
-*, *:before, *:after { box-sizing: border-box; }
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    padding: 0px;
-    margin: 0;
-    color: #fff;
-    background-color: #181818;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; 
-    -webkit-text-size-adjust: none;
+  font-family: "Helvetica", "Arial", sans-serif;
+  padding: 0px;
+  margin: 0;
+  color: #fff;
+  background-color: #181818;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  overflow: hidden;
 }
 
 a {
-    color: #6699cc;
+  color: #6699cc;
 }
 
 img {
-  border: 10px solid #F0F0F0;
+  border: 3px solid #F0F0F0;
   border-radius: 2px;
 }
 
+.audio-container {
+  background-color: orange;
+}
+
+#join-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: #0000ff;
+  color: white;
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+#join-btn:active {
+  background-color: #4d4dff;
+}
+
+#mic-controls {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+#mic-btn {
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+}
+
 main {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center; 
-    justify-content: center; 
-    height: 100vh;
-    border: 15px solid #000;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  border: 15px solid #000;
+}
+
+main a {
+  display: inline-grid;
+  margin: 0 auto;
+}
+
+.landing-links {
+  width: 75%;
+}
+
+.to-gallery, #to-archive {
+  display: grid;
+  width: 90%;
+  margin: 0 auto;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#to-gallery-1 {
+  transition: margin-right 2s, height 2s, width 2s;
+}
+
+#to-gallery-2 {
+  transition: margin-left 2s, height 2s, width 2s;
 }
 
 #gallery, #voice {
-	display: block;
+  display: block;
 }
 
 #gallery {
-	margin-right: 20px;
+  margin-right: 20px;
+  width: 700px;
+  height: 394px;
 }
+
+/*# sourceMappingURL=styles.css.map */

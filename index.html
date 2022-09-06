@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>Blue World by Kaja Silverman</title>
- <link rel="stylesheet" type="text/css" href="css/styles.css">
- <link rel="icon" type="image/x-icon" href="images/favicon-16x16.png">
- <!-- Made in Philadelphia -->
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <title>Blue World by Kaja Silverman</title>
+		 <link rel="stylesheet" type="text/css" href="gallery/styles.css">
+ 		<link rel="icon" type="image/x-icon" href="images/favicon-16x16.png">
+	 <!-- Made in Philadelphia -->
  </head>  
 <body>
-  <main>
-    
-    
-<a href="gallery/index.html"><img id="gallery" src="images/gallery-door.jpg" alt="gallery door" width="375" height="394" /></a>
 
-<a href="archive/room.html"><img id="archive" src="images/archive-door.jpg" alt="archive door" width="375" height="394" /></a>
-   
-   
+	<button id="join-btn">join gallery audio</button>
+		<div id="join-mic"></div>
+		<div id="mic-controls">
+			<button id="mic-btn">Mic on</button>
+		</div>
+  <main>
+	<a class="landing-links" href="gallery/index.html"><img class="to-gallery" id="to-gallery-1"src="images/gallery-door-1.jpg" alt="gallery door"/>
+	<img class="to-gallery" src="images/gallery-door-2.jpg" id="to-gallery-2" alt="gallery door"/></a>
+	<a class="landing-links" href="archive/room.html"><img id="to-archive" src="images/archive-door.jpg" alt="archive door"/></a> 
    </main>
 
 
 </body>
+<script type="text/javascript" src="gallery/AgoraRTC_N-4.13.0.js"></script>
+<script type="text/javascript" src="gallery/main.js"></script>
+<script type="text/javascript" src="gallery/slideDoor.js"></script>
 </html>
