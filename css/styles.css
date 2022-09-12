@@ -11,14 +11,14 @@ body {
 }
 
 div {
-    cursor:https://nnwv.github.io/blueworldtest/images/blue-cursor.cur(blue-cursur.cur),auto;
+    cursor:../images/blue-cursor.cur(blue-cursur.cur),auto;
 }
 
-<!--
+
 a {
     color: #6699cc;
 }
--->
+
 
 img {
   border: 10px solid #F0F0F0;
