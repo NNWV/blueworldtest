@@ -17,7 +17,7 @@ a {
 }
 
 img {
-  border: 3px solid #F0F0F0;
+  border: 3px groove #F0F0F0;
   border-radius: 2px;
 }
 
@@ -31,11 +31,12 @@ img {
     top:0;
     right: 0;
     border: none;
-    background-color: #0000ff;
+    background-color: grayscale(black);
     color: white;
     padding: 5px 10px;
-    margin:2px;
+    margin: 1em;
     cursor: pointer;
+    border-radius: 1em;
 }
 
 #join-btn:active {
@@ -54,8 +55,9 @@ img {
     background-color: red;
     color: white;
     padding: 5px 10px;
-    margin:2px;
+    margin: 1em;
     cursor: pointer;
+    border-radius: 1em;
 }
 
 main {
@@ -66,7 +68,7 @@ main {
     justify-content: center; 
     height: 100vh;
     width: 100%;
-    border: 15px solid #000;
+    // border: 15px solid #000;
 }
 
 main a{
