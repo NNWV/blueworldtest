@@ -1,5 +1,5 @@
 const APP_ID = "332af2bbdcde4183a1317e9e71f6e5ef"
-const TOKEN ="007eJxTYFheY1EpFcr/JkiledpXww9ni3cFO6R2FV/e8ue+onRyE4sCg7GxUWKaUVJSSnJKqomhhXGiobGheaplqrlhmlmqaWranzKN5IYTmskfrhczMEIhiM/CkJuYmcfAAACEESJ0"
+const TOKEN = "007eJxTYHA01VXTKg0UKbvh/W51/1LHeRwPwu+7C+w/dqa7OMqvkFeBwdjYKDHNKCkpJTkl1cTQwjjR0NjQPNUy1dwwzSzVNDXNcKNh8mYm42TRUy8ZGKEQxGdhyE3MzGNgAADXfB8M"
 const CHANNEL ="main"
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
@@ -32,9 +32,11 @@ let joinAudioStream = async () => {
 }
 
 let joinStream = async () => {
+	document.getElementById('join-btn').style.background = 'red'
 	await joinAudioStream()
 	document.getElementById('join-btn').style.display = 'none'
-	document.getElementById('mic-controls').style.display = 'flex'
+	document.getElementById('join-btn').style.background = 'transparent'
+	document.getElementById('mic-controls').style.display = 'grid'
 
 }
 
@@ -56,20 +58,31 @@ let handleUserJoined = async (user, mediaType) => {
 let toggleMic = async (e) => {
 	if(localTracks.muted){
 		await localTracks.setMuted(false)
-		e.target.innerText = 'Mic On'
+		e.target.innerText = 'mic'
 	}else{
 		await localTracks.setMuted(true)
-		e.target.innerText = 'Mic Off'
+		e.target.innerText = 'mic_off'
 	}
 }
 
-let slideDoors = async () => {
+let leaveStream = async () =>{
+	for (let i = 0; i <localTracks.length; i++) {
+		localTracks.stop();
+		localTracks.close();
+		localTracks.setMuted();
+	} 
 
-	console.log("slideDoors success")
-	
+	await client.leave()
+	document.getElementById('mic-controls').style.display = 'none'
+	document.getElementById('join-btn').style.display = 'flex'
+	console.log("goodbye");
+} 
 
-}
+//set up a mute stream? or just leave stream maybe.
+
+//also need to destroy the stream. its still running when left at this point
+
 
 document.getElementById('join-btn').addEventListener('click', joinStream)
 document.getElementById('mic-btn').addEventListener('click', toggleMic)
-document.getElementById('to-gallery').addEventListener('click', slideDoors)
+document.getElementById('leave-btn').addEventListener('click', leaveStream)

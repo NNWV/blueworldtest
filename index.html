@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
 <head>
 	<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		 <title>helloBlueWorld</title>
-		 <link rel="stylesheet" type="text/css" href="gallery/styles.css">
+		 <link rel="stylesheet" type="text/css" href="styles/styles.css">
+		 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
  		<link rel="icon" type="image/x-icon" href="images/bw-favicon.png">
 	 <!-- Made for All of The People -->
  </head>  
 <body>
 
-	<button id="join-btn">join gallery audio</button>
+	<button id="join-btn" title="join gallery audio"><span id="join-icon">join</span></button>
 		<div id="join-mic"></div>
 		<div id="mic-controls">
-			<button id="mic-btn">Mic on</button>
+			<button id="mic-btn"><span id="mic-icon">mic</span></button>
+			<button id="leave-btn"><span id="leave-icon">logout</span></button>
 		</div>
   <main>
-	<a class="landing-links" href="gallery/index.html"><img class="to-gallery" id="to-gallery-1"src="images/gallery-door-1.jpg" alt="gallery door"/>
+	<a class="landing-links" id="gallery-doors" href="gallery/index.html"><img class="to-gallery" id="to-gallery-1"src="images/gallery-door-1.jpg" alt="gallery door"/>
 	<img class="to-gallery" src="images/gallery-door-2.jpg" id="to-gallery-2" alt="gallery door"/></a>
-	<a class="landing-links" href="archive/room.html"><img id="to-archive" src="images/archive-door.jpg" alt="archive door"/></a> 
+	<a class="landing-links" id="archive-door" href="archive/room.html"><img class=to-archive id="to-archive-1" src="images/archive-door.jpg" alt="archive door"/></a> 
    </main>
 
 
 </body>
-<script type="text/javascript" src="gallery/AgoraRTC_N-4.13.0.js"></script>
-<script type="text/javascript" src="gallery/main.js"></script>
-<script type="text/javascript" src="gallery/slideDoor.js"></script>
+<script type="text/javascript" src="js/AgoraRTC_N-4.13.0.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/slideDoor.js"></script>
 </html>

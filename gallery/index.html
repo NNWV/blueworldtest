@@ -4,13 +4,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>The Gallery</title>
-		<link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="../styles/styles.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	</head>  
 	<body>
-		<button id="join-btn">join gallery audio</button>
+		<button id="join-btn"><span id="join-icon">join</span></button>
 		<div id="join-mic"></div>
 		<div id="mic-controls">
-			<button id="mic-btn">Mic on</button>
+			<button id="mic-btn"><span id="mic-icon">mic</span></button>
+			<button id="leave-btn"><span id="leave-icon">logout</span></button>
 		</div>
 	  <main>
 	<a class="gallery-overview"><img id="gallery" src="test01.jpg" alt="logo"></a>
@@ -18,8 +20,8 @@
 
 
 	</body>
-<script type="text/javascript" src="AgoraRTC_N-4.13.0.js"></script>
-<script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="slideDoor.js"></script>
+<script type="text/javascript" src="../js/AgoraRTC_N-4.13.0.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/slideDoor.js"></script>
 </html>
  

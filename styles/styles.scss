@@ -1,0 +1,218 @@
+*, *:before, *:after { box-sizing: border-box; }
+
+body {
+    font-family: 'Baskerville', serif;
+    padding: 0px;
+    margin: 0;
+    color: #fff;
+    background: linear-gradient( 180deg, #1a1a1a, black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    -webkit-text-size-adjust: none;
+    overflow: hidden;
+}
+
+a {
+    color: #6699cc;
+}
+
+
+#join-btn{
+    font-family: "Material Symbols Rounded";
+    position: fixed;
+    top:0;
+    right: 0;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    margin: 1em;
+    cursor: pointer;
+    border-radius: 1em;
+    border: 1px solid white;
+    z-index: 10000;
+    &:hover{
+        background-color: #5d4dff;
+        };
+    &:active{
+        background-color: #4d4dff;
+    }
+    span{
+        font-size: 24px;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24;
+        &:hover{
+            font-variation-settings:
+        'FILL' 1,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24;
+        }
+    }
+}
+
+#mic-controls{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    margin: 1em;
+    // background-color:#4d4dff;
+}
+
+#mic-btn{
+    background-color: transparent;
+    display: grid;
+    align-items:center;
+    color: white;
+    font-size: 28px;
+    width: 40px;
+    height: 40px ;
+    border-radius: .5em;
+    border: 1px solid white;
+    cursor: pointer;
+    &:hover{
+        background-color: #5d4dff;
+        };
+    &:active{
+        background-color: #4d4dff;
+    }
+}
+#mic-icon{
+font-family: "Material Symbols Rounded";
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 28;
+}
+
+#leave-btn{
+    @extend #mic-btn;
+    margin-top: 25%;
+}
+
+#leave-icon{
+    @extend #mic-icon;
+
+}
+
+main {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 42.5%);
+    flex-flow: row;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    width: 100%;
+    // border: 15px solid #000;
+}
+
+main a{
+    display: inline-grid;
+    margin: 0 auto;
+}
+
+
+.landing-links{
+    width:75%;
+}
+
+.to-gallery, .to-archive{
+    border: 3px groove #F0F0F0;
+    border-radius: 2px;
+    display: grid;
+    width: 100%;
+    margin:0 auto;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    &:hover{
+        filter:invert(.075);
+    }
+}
+
+#to-gallery-1{
+    border-right: 0px;
+}
+
+#to-gallery-2{
+    border-left:0px;
+}
+
+// .landing-links:hover {
+//     #to-gallery-1{
+//     position:relative;
+//     animation: slideLeft 5s ease infinite;
+//     }
+//     #to-gallery-2{
+//     position:relative;
+//     animation: slideRight 5s ease infinite;
+// }
+// }
+
+.slideLeft{
+    position:relative;
+    -webkit-animation: slideLeft 5s ease infinite;
+    animation: slideLeft 5s ease infinite;
+
+}
+.slideRight{
+    position:relative;
+    -webkit-animation: slideRight 5s ease infinite;
+    animation: slideRight 5s ease infinite;
+}
+
+.slideOpenLeft{
+    animation: slideOpenLeft 2s ease forwards;
+}
+.slideOpenRight{
+    animation: slideOpenRight 2s ease forwards;
+}
+.doorZoom{
+    position: relative;
+    grid-template-columns:none;
+    animation: bigDoor 1s ease-in ;
+}
+
+//in gallery now
+
+.gallery-overview{
+    border: 3px groove #F0F0F0;
+    border-radius: 2px;
+}
+#gallery {
+    width: 100%;
+}
+
+//keyframes
+
+@keyframes slideLeft{
+    0%{left: 0px; }
+    50% {left: -5px; }
+    100% {left: 0px; }
+}
+@keyframes slideRight{
+     0%{right: 0px; }
+    50% {right: -5px; }
+    100% {right: 0px; }
+}
+
+//doesn't work because cursor is still in hover mode
+// @keyframes slideOpenLeft{
+//     from{left: 0px; }
+//     to {left: -10px; }
+// }
+// @keyframes slideOpenRight{
+//     from{right: 0px; }
+//     to {right: -10px; }
+
+// }
+// @keyframes bigDoor{
+//     from{width: 100%; }
+//     to {width: 400%; }   
+// }
