@@ -127,27 +127,15 @@ main a {
 .slideLeft {
   position: relative;
   -webkit-animation: slideLeft 5s ease infinite;
+  -moz-animation: slideLeftt 5s ease infinite;
   animation: slideLeft 5s ease infinite;
 }
 
 .slideRight {
   position: relative;
   -webkit-animation: slideRight 5s ease infinite;
+  -moz-animation: slideRight 5s ease infinite;
   animation: slideRight 5s ease infinite;
-}
-
-.slideOpenLeft {
-  animation: slideOpenLeft 2s ease forwards;
-}
-
-.slideOpenRight {
-  animation: slideOpenRight 2s ease forwards;
-}
-
-.doorZoom {
-  position: relative;
-  grid-template-columns: none;
-  animation: bigDoor 1s ease-in;
 }
 
 .gallery-overview {
@@ -159,6 +147,50 @@ main a {
   width: 100%;
 }
 
+@-webkit-keyframes slideLeft {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: -5px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@-webkit-keyframes slideright {
+  0% {
+    right: 0px;
+  }
+  50% {
+    right: -5px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@-moz-keyframes slideLeft {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: -5px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@-moz-keyframes slideright {
+  0% {
+    right: 0px;
+  }
+  50% {
+    right: -5px;
+  }
+  100% {
+    right: 0px;
+  }
+}
 @keyframes slideLeft {
   0% {
     left: 0px;
