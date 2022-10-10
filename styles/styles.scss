@@ -1,11 +1,17 @@
-*, *:before, *:after { box-sizing: border-box; }
+*, *:before, *:after { 
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 
 body {
     font-family: 'Baskerville', serif;
-    padding: 0px;
+    padding: 0;
     margin: 0;
     color: #fff;
-    background: linear-gradient( 180deg, #1a1a1a, black);
+    width: 100%;
+    // background: url(https://www.wga.hu/art/g/giotto/padova/4lastjud/11_lastj.jpg);
+    background: #0d0600;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
     -webkit-text-size-adjust: none;
@@ -16,29 +22,24 @@ a {
     color: #6699cc;
 }
 
-
 #join-btn{
     font-family: "Material Symbols Rounded";
     position: fixed;
     top:0;
     right: 0;
     border: none;
-    background-color: black;
+    outline: none;
+    background-color: transparent;
     color: white;
-    padding: 5px 10px;
-    margin: 1em;
+    margin: 1.5em;
     cursor: pointer;
-    border-radius: 1em;
-    border: 1px solid white;
+    flex-wrap: wrap;
     z-index: 10000;
-    &:hover{
-        background-color: #5d4dff;
-        };
-    &:active{
-        background-color: #4d4dff;
-    }
     span{
-        font-size: 24px;
+        display: grid;
+        background: transparent;
+        font-size: 25px;
+        margin:auto;
         font-variation-settings:
         'FILL' 0,
         'wght' 200,
@@ -51,8 +52,21 @@ a {
         'GRAD' 0,
         'opsz' 24;
         }
+        &:active{
+            color: #0e2257;
+        }
     }
 }
+
+.loading-btn{
+    animation: loading 5s linear infinite;
+    span{
+        color: #15317E;
+    }
+}
+
+//controls for microphone
+
 
 #mic-controls{
     display: none;
@@ -60,49 +74,21 @@ a {
     top: 0;
     right: 0;
     z-index: 10000;
-    margin: 1em;
-    // background-color:#4d4dff;
-}
-
-#mic-btn{
-    background-color: transparent;
-    display: grid;
-    align-items:center;
-    color: white;
-    font-size: 28px;
-    width: 40px;
-    height: 40px ;
-    border-radius: .5em;
-    border: 1px solid white;
-    cursor: pointer;
-    &:hover{
-        background-color: #5d4dff;
-        };
-    &:active{
-        background-color: #4d4dff;
-    }
-}
-#mic-icon{
-font-family: "Material Symbols Rounded";
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 200,
-  'GRAD' 0,
-  'opsz' 28;
+    margin: 1.5em;
 }
 
 #leave-btn{
-    @extend #mic-btn;
-    margin-top: 25%;
+    @extend #join-btn;
+    // margin-top: 25%;
 }
 
 #leave-icon{
-    @extend #mic-icon;
-
+    @extend #join-btn;
 }
 
-main {
+// main page
 
+main {
     display: grid;
     grid-template-columns: repeat(auto-fit, 42.5%);
     flex-flow: row;
@@ -110,17 +96,28 @@ main {
     justify-content: center; 
     height: 100vh;
     width: 100%;
-    // border: 15px solid #000;
+
+    a{
+        display: inline-grid;
+        margin: 0 auto;
+    }
 }
 
-main a{
-    display: inline-grid;
-    margin: 0 auto;
+//loading section
+
+#loading-scrim{
+    background-color:black;
+    z-index: 100000;
+    display: block;
+    position: absolute;
+    width:100vw;
+    height: 100vh;
 }
 
 
 .landing-links{
     width:75%;
+    background: radial-gradient(white 40%, transparent 60%);
 }
 
 .to-gallery, .to-archive{
@@ -144,75 +141,141 @@ main a{
     border-left:0px;
 }
 
-// .landing-links:hover {
-//     #to-gallery-1{
-//     position:relative;
-//     animation: slideLeft 5s ease infinite;
-//     }
-//     #to-gallery-2{
-//     position:relative;
-//     animation: slideRight 5s ease infinite;
-// }
-// }
-
 .slideLeft{
     position:relative;
-    -webkit-animation: slideLeft 5s ease infinite;
-    animation: slideLeft 5s ease infinite;
+    -webkit-animation: slideLeft 7s ease infinite;
+    -moz-animation: slideLeftt 7s ease infinite;
+    animation: slideLeft 7s ease infinite;
 
 }
 .slideRight{
     position:relative;
-    -webkit-animation: slideRight 5s ease infinite;
-    animation: slideRight 5s ease infinite;
-}
-
-.slideOpenLeft{
-    animation: slideOpenLeft 2s ease forwards;
-}
-.slideOpenRight{
-    animation: slideOpenRight 2s ease forwards;
-}
-.doorZoom{
-    position: relative;
-    grid-template-columns:none;
-    animation: bigDoor 1s ease-in ;
-}
+    -webkit-animation: slideRight 7s ease infinite;
+    -moz-animation: slideRight 7s ease infinite;
+    animation: slideRight 7s ease infinite;
+}   
 
 //in gallery now
 
 .gallery-overview{
-    border: 3px groove #F0F0F0;
-    border-radius: 2px;
+ 
+    width: 100%;
+    position:fixed;
 }
 #gallery {
     width: 100%;
 }
 
+#left-side{
+    cursor: pointer;
+}
+#center-side{
+    cursor: pointer;
+}
+#right-side{
+    cursor: pointer;
+}
 //keyframes
 
-@keyframes slideLeft{
-    0%{left: 0px; }
-    50% {left: -5px; }
+@-webkit-keyframes slideLeft{
+        0%{left: 0px; }
+    30% {left: -5px; }
+    60% {left: -5px;}
+    80% {left: 0px; }
     100% {left: 0px; }
 }
-@keyframes slideRight{
-     0%{right: 0px; }
-    50% {right: -5px; }
+
+@-webkit-keyframes slideright{
+        0%{right: 0px; }
+    30% {right: -5px; }
+    60% {right: -5px;}
+    80% {right: 0px; }
     100% {right: 0px; }
 }
 
-//doesn't work because cursor is still in hover mode
-// @keyframes slideOpenLeft{
-//     from{left: 0px; }
-//     to {left: -10px; }
-// }
-// @keyframes slideOpenRight{
-//     from{right: 0px; }
-//     to {right: -10px; }
 
-// }
-// @keyframes bigDoor{
-//     from{width: 100%; }
-//     to {width: 400%; }   
-// }
+@-moz-keyframes slideLeft{
+        0%{left: 0px; }
+    30% {left: -5px; }
+    60% {left: -5px;}
+    80% {left: 0px; }
+    100% {left: 0px; }
+}
+
+@-moz-keyframes slideright{
+        0%{right: 0px; }
+    30% {right: -5px; }
+    60% {right: -5px;}
+    80% {right: 0px; }
+    100% {right: 0px; }
+}
+
+@keyframes slideLeft{
+        0%{left: 0px; }
+    30% {left: -5px; }
+    60% {left: -5px;}
+    80% {left: 0px; }
+    100% {left: 0px; }
+}
+@keyframes slideRight{
+        0%{right: 0px; }
+    30% {right: -5px; }
+    60% {right: -5px;}
+    80% {right: 0px; }
+    100% {right: 0px; }
+}
+
+@-webkit-keyframes loading {
+    0% {rotate:0deg;}
+    100% {rotate:360deg;}
+}
+
+@-moz-keyframes loading {
+    0% {rotate:0deg;}
+    100% {rotate:360deg;}
+}
+
+@keyframes loading {
+    0% {rotate:0deg;}
+    100% {rotate:360deg;}
+}
+
+
+@media only screen and (orientation:portrait){
+
+  #container {
+
+    height: 100vw;
+
+    -webkit-transform: rotate(90deg);
+
+    -moz-transform: rotate(90deg);
+
+    -o-transform: rotate(90deg);
+
+    -ms-transform: rotate(90deg);
+
+    transform: rotate(90deg);
+
+  }
+
+}
+
+@media only screen and (orientation:landscape){
+
+  #container {
+
+     -webkit-transform: rotate(0deg);
+
+     -moz-transform: rotate(0deg);
+
+     -o-transform: rotate(0deg);
+
+     -ms-transform: rotate(0deg);
+
+     transform: rotate(0deg);
+
+  }
+
+}
+
