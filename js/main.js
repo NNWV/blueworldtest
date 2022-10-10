@@ -32,11 +32,12 @@ let joinAudioStream = async () => {
 }
 
 let joinStream = async () => {
-	document.getElementById('join-btn').style.background = 'red'
+	document.getElementById('join-btn').classList.add('loading-btn')
 	await joinAudioStream()
 	document.getElementById('join-btn').style.display = 'none'
 	document.getElementById('join-btn').style.background = 'transparent'
 	document.getElementById('mic-controls').style.display = 'grid'
+	document.getElementById('join-btn').classList.remove('loading-btn')
 
 }
 

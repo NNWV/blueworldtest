@@ -1,8 +1,11 @@
 let toggleFullScreen = async () => {
+
+
 	if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
    (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-    if (document.documentElement.requestFullScreen) {  
-      document.documentElement.requestFullScreen();  
+    if (document.documentElement.requestFullScreen) {
+      document.documentElement.requestFullScreen();
+      // document.getElementById('gallery-container').classList.add('full-gallery')
     } else if (document.documentElement.mozRequestFullScreen) {  
       document.documentElement.mozRequestFullScreen();  
     } else if (document.documentElement.webkitRequestFullScreen) {  
@@ -19,6 +22,11 @@ let toggleFullScreen = async () => {
   }  
 }
 
+let landingPage = async () => {
+    const landingScrim = document.getElementById("loading-scrim");
+    landingScrim.remove();
+}
+
 const galleryDoorLeft = document.getElementById('to-gallery-1');
 const galleryDoorRight = document.getElementById('to-gallery-2');
 
@@ -27,31 +35,15 @@ let slideDoors = async () => {
   setTimeout(() => {
     galleryDoorLeft.classList.add('slideLeft');
     galleryDoorRight.classList.add('slideRight');
-  }, 1000);
+  }, 2000);
 
 }
 
-let slideDoorsOpen = async () => {
-
-  galleryDoorLeft.classList.add('slideOpenLeft');
-  galleryDoorRight.classList.add('slideOpenRight');
+let collapseSidebar = async () => {
 
 }
 
-let slideDoorsClose = async () => {
-
-  galleryDoorLeft.classList.remove('slideOpenLeft');
-  galleryDoorRight.classList.remove("slideOpenRight");
-}
-
-let archiveZoom = async () => {
-  let archiveDoor = document.getElementById("to-archive-1");
-
-  archiveDoor.classList.add('doorZoom');  
-}
+window.addEventListener('DOMcontentloaded', landingPage())
 
 slideDoors();
 // document.getElementById('gallery').addEventListener('mousedown', toggleFullScreen)
-// document.getElementById('gallery-doors').addEventListener('mouseenter', slideDoorsOpen)
-// document.getElementById('gallery-doors').addEventListener('mouseleave', slideDoorsClose)
-// document.getElementById('archive-door').addEventListener('mousedown', archiveZoom)

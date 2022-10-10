@@ -1,13 +1,16 @@
 *, *:before, *:after {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 body {
   font-family: "Baskerville", serif;
-  padding: 0px;
+  padding: 0;
   margin: 0;
   color: #fff;
-  background: linear-gradient(180deg, #1a1a1a, black);
+  width: 100%;
+  background: #0d0600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
@@ -18,33 +21,39 @@ a {
   color: #6699cc;
 }
 
-#join-btn {
+#join-btn, #leave-icon, #leave-btn {
   font-family: "Material Symbols Rounded";
   position: fixed;
   top: 0;
   right: 0;
   border: none;
-  background-color: black;
+  outline: none;
+  background-color: transparent;
   color: white;
-  padding: 5px 10px;
-  margin: 1em;
+  margin: 1.5em;
   cursor: pointer;
-  border-radius: 1em;
-  border: 1px solid white;
+  flex-wrap: wrap;
   z-index: 10000;
 }
-#join-btn:hover {
-  background-color: #5d4dff;
-}
-#join-btn:active {
-  background-color: #4d4dff;
-}
-#join-btn span {
-  font-size: 24px;
+#join-btn span, #leave-icon span, #leave-btn span {
+  display: grid;
+  background: transparent;
+  font-size: 25px;
+  margin: auto;
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
 }
-#join-btn span:hover {
+#join-btn span:hover, #leave-icon span:hover, #leave-btn span:hover {
   font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+}
+#join-btn span:active, #leave-icon span:active, #leave-btn span:active {
+  color: #0e2257;
+}
+
+.loading-btn {
+  animation: loading 5s linear infinite;
+}
+.loading-btn span {
+  color: #15317E;
 }
 
 #mic-controls {
@@ -53,35 +62,7 @@ a {
   top: 0;
   right: 0;
   z-index: 10000;
-  margin: 1em;
-}
-
-#mic-btn, #leave-btn {
-  background-color: transparent;
-  display: grid;
-  align-items: center;
-  color: white;
-  font-size: 28px;
-  width: 40px;
-  height: 40px;
-  border-radius: 0.5em;
-  border: 1px solid white;
-  cursor: pointer;
-}
-#mic-btn:hover, #leave-btn:hover {
-  background-color: #5d4dff;
-}
-#mic-btn:active, #leave-btn:active {
-  background-color: #4d4dff;
-}
-
-#mic-icon, #leave-icon {
-  font-family: "Material Symbols Rounded";
-  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 28;
-}
-
-#leave-btn {
-  margin-top: 25%;
+  margin: 1.5em;
 }
 
 main {
@@ -93,14 +74,23 @@ main {
   height: 100vh;
   width: 100%;
 }
-
 main a {
   display: inline-grid;
   margin: 0 auto;
 }
 
+#loading-scrim {
+  background-color: black;
+  z-index: 100000;
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
 .landing-links {
   width: 75%;
+  background: radial-gradient(white 40%, transparent 60%);
 }
 
 .to-gallery, .to-archive {
@@ -126,45 +116,119 @@ main a {
 
 .slideLeft {
   position: relative;
-  -webkit-animation: slideLeft 5s ease infinite;
-  animation: slideLeft 5s ease infinite;
+  -webkit-animation: slideLeft 7s ease infinite;
+  -moz-animation: slideLeftt 7s ease infinite;
+  animation: slideLeft 7s ease infinite;
 }
 
 .slideRight {
   position: relative;
-  -webkit-animation: slideRight 5s ease infinite;
-  animation: slideRight 5s ease infinite;
-}
-
-.slideOpenLeft {
-  animation: slideOpenLeft 2s ease forwards;
-}
-
-.slideOpenRight {
-  animation: slideOpenRight 2s ease forwards;
-}
-
-.doorZoom {
-  position: relative;
-  grid-template-columns: none;
-  animation: bigDoor 1s ease-in;
+  -webkit-animation: slideRight 7s ease infinite;
+  -moz-animation: slideRight 7s ease infinite;
+  animation: slideRight 7s ease infinite;
 }
 
 .gallery-overview {
-  border: 3px groove #F0F0F0;
-  border-radius: 2px;
+  width: 100%;
+  position: fixed;
 }
 
 #gallery {
   width: 100%;
 }
 
+#left-side {
+  cursor: pointer;
+}
+
+#center-side {
+  cursor: pointer;
+}
+
+#right-side {
+  cursor: pointer;
+}
+
+@-webkit-keyframes slideLeft {
+  0% {
+    left: 0px;
+  }
+  30% {
+    left: -5px;
+  }
+  60% {
+    left: -5px;
+  }
+  80% {
+    left: 0px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@-webkit-keyframes slideright {
+  0% {
+    right: 0px;
+  }
+  30% {
+    right: -5px;
+  }
+  60% {
+    right: -5px;
+  }
+  80% {
+    right: 0px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@-moz-keyframes slideLeft {
+  0% {
+    left: 0px;
+  }
+  30% {
+    left: -5px;
+  }
+  60% {
+    left: -5px;
+  }
+  80% {
+    left: 0px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@-moz-keyframes slideright {
+  0% {
+    right: 0px;
+  }
+  30% {
+    right: -5px;
+  }
+  60% {
+    right: -5px;
+  }
+  80% {
+    right: 0px;
+  }
+  100% {
+    right: 0px;
+  }
+}
 @keyframes slideLeft {
   0% {
     left: 0px;
   }
-  50% {
+  30% {
     left: -5px;
+  }
+  60% {
+    left: -5px;
+  }
+  80% {
+    left: 0px;
   }
   100% {
     left: 0px;
@@ -174,11 +238,41 @@ main a {
   0% {
     right: 0px;
   }
-  50% {
+  30% {
     right: -5px;
+  }
+  60% {
+    right: -5px;
+  }
+  80% {
+    right: 0px;
   }
   100% {
     right: 0px;
+  }
+}
+@-webkit-keyframes loading {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+@-moz-keyframes loading {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+@keyframes loading {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
   }
 }
 
