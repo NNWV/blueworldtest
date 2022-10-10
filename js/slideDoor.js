@@ -23,8 +23,24 @@ let toggleFullScreen = async () => {
 }
 
 let landingPage = async () => {
-    const landingScrim = document.getElementById("loading-scrim");
-    landingScrim.remove();
+
+    let imgs = document.images,
+    len = imgs.length,
+    counter = 0;
+
+    [].forEach.call(imgs, function(img) { 
+      if(img.complete)
+        incrementCounter();
+      else
+        img.addEventListener('load', incrementCounter, false);
+    });
+    function incrementCounter(){
+      counter++; 
+      if(counter === len) {
+        let landingScrim = document.getElementById("loading-scrim");
+        landingScrim.remove();
+      }
+    }
 }
 
 const galleryDoorLeft = document.getElementById('to-gallery-1');
@@ -35,15 +51,16 @@ let slideDoors = async () => {
   setTimeout(() => {
     galleryDoorLeft.classList.add('slideLeft');
     galleryDoorRight.classList.add('slideRight');
-  }, 2000);
+  }, 1000);
 
 }
 
-let collapseSidebar = async () => {
+// let collapseSidebar = async () => {
 
-}
+// }
 
-window.addEventListener('DOMcontentloaded', landingPage())
+
+landingPage()
 
 slideDoors();
 // document.getElementById('gallery').addEventListener('mousedown', toggleFullScreen)
