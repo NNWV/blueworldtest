@@ -9,8 +9,8 @@ body {
   padding: 0;
   margin: 0;
   color: #fff;
-  width: 100%;
-  background: #0d0600;
+  width: 100vw;
+  background: #231f20;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
@@ -21,7 +21,11 @@ a {
   color: #6699cc;
 }
 
-#join-btn, #leave-icon, #leave-btn {
+iframe {
+  border: none;
+}
+
+#join-btn, #leave-btn {
   font-family: "Material Symbols Rounded";
   position: fixed;
   top: 0;
@@ -31,29 +35,33 @@ a {
   background-color: transparent;
   color: white;
   margin: 1.5em;
-  cursor: pointer;
-  flex-wrap: wrap;
   z-index: 10000;
 }
-#join-btn span, #leave-icon span, #leave-btn span {
+#join-btn span, #leave-btn span {
   display: grid;
+  place-items: center;
   background: transparent;
-  font-size: 25px;
-  margin: auto;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
 }
-#join-btn span:hover, #leave-icon span:hover, #leave-btn span:hover {
+#join-btn span:hover, #leave-btn span:hover {
   font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+  cursor: pointer;
 }
-#join-btn span:active, #leave-icon span:active, #leave-btn span:active {
-  color: #0e2257;
+#join-btn span:active, #leave-btn span:active {
+  color: grey;
 }
 
 .loading-btn {
-  animation: loading 5s linear infinite;
+  -webkit-animation: loading 0.75s linear infinite;
+  -moz-animation: loading 0.75s linear infinite;
+  animation: loading 0.75s linear infinite;
 }
 .loading-btn span {
-  color: #15317E;
+  color: #fcdd07;
+  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
 }
 
 #mic-controls {
@@ -65,6 +73,18 @@ a {
   margin: 1.5em;
 }
 
+#leave-btn #leave-icon {
+  display: grid;
+  background: transparent;
+  font-size: 32px;
+  margin: auto;
+  color: #fcdd07;
+  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 24;
+}
+#leave-btn #leave-icon:hover {
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, 42.5%);
@@ -72,7 +92,7 @@ main {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 main a {
   display: inline-grid;
@@ -80,7 +100,7 @@ main a {
 }
 
 #loading-scrim {
-  background-color: black;
+  background-color: #231f20;
   z-index: 100000;
   display: block;
   position: absolute;
@@ -90,6 +110,8 @@ main a {
 
 .landing-links {
   width: 75%;
+}
+.landing-links:first-of-type {
   background: radial-gradient(white 40%, transparent 60%);
 }
 
@@ -103,7 +125,7 @@ main a {
   grid-row-end: 2;
 }
 .to-gallery:hover, .to-archive:hover {
-  filter: invert(0.075);
+  filter: invert(0.03);
 }
 
 #to-gallery-1 {
@@ -116,16 +138,16 @@ main a {
 
 .slideLeft {
   position: relative;
-  -webkit-animation: slideLeft 7s ease infinite;
-  -moz-animation: slideLeftt 7s ease infinite;
-  animation: slideLeft 7s ease infinite;
+  -webkit-animation: slideLeft 10s ease infinite;
+  -moz-animation: slideLeftt 10s ease infinite;
+  animation: slideLeft 10s ease infinite;
 }
 
 .slideRight {
   position: relative;
-  -webkit-animation: slideRight 7s ease infinite;
-  -moz-animation: slideRight 7s ease infinite;
-  animation: slideRight 7s ease infinite;
+  -webkit-animation: slideRight 10s ease infinite;
+  -moz-animation: slideRight 10s ease infinite;
+  animation: slideRight 10s ease infinite;
 }
 
 .gallery-overview {
@@ -149,17 +171,49 @@ main a {
   cursor: pointer;
 }
 
+#unity-wrapper {
+  text-align: center;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: unset;
+  place-content: center;
+}
+
+#unity-canvas {
+  background-color: #231f20;
+  width: 100vw;
+  height: 100vw;
+  aspect-ratio: 16/9;
+}
+
+#unity-canvas-16-9 {
+  background-color: #231f20;
+  width: 100vw;
+  aspect-ratio: 16/9;
+}
+
+#unity-canvas-16-9-small {
+  background-color: #231f20;
+  width: 85vw;
+  aspect-ratio: 16/9;
+}
+
 @-webkit-keyframes slideLeft {
   0% {
     left: 0px;
   }
-  30% {
+  15% {
     left: -5px;
   }
   60% {
     left: -5px;
   }
-  80% {
+  75% {
     left: 0px;
   }
   100% {
@@ -170,13 +224,13 @@ main a {
   0% {
     right: 0px;
   }
-  30% {
+  15% {
     right: -5px;
   }
   60% {
     right: -5px;
   }
-  80% {
+  75% {
     right: 0px;
   }
   100% {
@@ -187,13 +241,13 @@ main a {
   0% {
     left: 0px;
   }
-  30% {
+  15% {
     left: -5px;
   }
   60% {
     left: -5px;
   }
-  80% {
+  75% {
     left: 0px;
   }
   100% {
@@ -204,13 +258,13 @@ main a {
   0% {
     right: 0px;
   }
-  30% {
+  15% {
     right: -5px;
   }
   60% {
     right: -5px;
   }
-  80% {
+  75% {
     right: 0px;
   }
   100% {
@@ -221,13 +275,13 @@ main a {
   0% {
     left: 0px;
   }
-  30% {
+  15% {
     left: -5px;
   }
   60% {
     left: -5px;
   }
-  80% {
+  75% {
     left: 0px;
   }
   100% {
@@ -238,13 +292,13 @@ main a {
   0% {
     right: 0px;
   }
-  30% {
+  15% {
     right: -5px;
   }
   60% {
     right: -5px;
   }
-  80% {
+  75% {
     right: 0px;
   }
   100% {
@@ -255,43 +309,40 @@ main a {
   0% {
     rotate: 0deg;
   }
+  50% {
+    rotate: 180deg;
+  }
   100% {
-    rotate: 360deg;
+    rotate: 180deg;
   }
 }
 @-moz-keyframes loading {
   0% {
     rotate: 0deg;
   }
+  50% {
+    rotate: 180deg;
+  }
   100% {
-    rotate: 360deg;
+    rotate: 180deg;
   }
 }
 @keyframes loading {
   0% {
     rotate: 0deg;
   }
+  50% {
+    rotate: 180deg;
+  }
   100% {
-    rotate: 360deg;
+    rotate: 180deg;
   }
 }
-@media only screen and (orientation: portrait) {
-  #container {
+@media (max-width: 600px) {
+  #unity-canvas {
+    background-color: #231f20;
+    width: 100vw;
     height: 100vw;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-  }
-}
-@media only screen and (orientation: landscape) {
-  #container {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 }
 

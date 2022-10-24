@@ -55,12 +55,18 @@ let slideDoors = async () => {
 
 }
 
-// let collapseSidebar = async () => {
+let zipperDoor = async () => {
 
-// }
+ document.getElementById('to-archive-1').setAttribute('src', "images/archive-door-open.png")
+
+}
+
 
 
 landingPage()
 
 slideDoors();
+
+document.getElementById('to-archive-1').addEventListener('mouseenter', zipperDoor)
+
 // document.getElementById('gallery').addEventListener('mousedown', toggleFullScreen)
