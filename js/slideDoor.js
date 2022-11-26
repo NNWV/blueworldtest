@@ -57,7 +57,7 @@ let slideDoors = async () => {
 
 let zipperDoor = async () => {
 
- document.getElementById('to-archive-1').setAttribute('src', "images/archive-door-open.png")
+ document.getElementById('to-archive-1').setAttribute('src', "images/archive-door-closed.png")
 
 }
 
