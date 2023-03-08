@@ -10,7 +10,7 @@ body {
   margin: 0;
   color: #fff;
   width: 100vw;
-  background: #231f20;
+  background: #282828;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
@@ -100,7 +100,7 @@ main a {
 }
 
 #loading-scrim {
-  background-color: #231f20;
+  background-color: #282828;
   z-index: 100000;
   display: block;
   position: absolute;
